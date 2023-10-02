@@ -15,11 +15,14 @@ module.exports = {
       colors: {
         'senac-yellow-40': 'rgba(253, 193, 128, 0.4)',
         'senac-yellow': 'rgba(247, 148, 29)',
+        'senac-blue': '#004C94',
       },
       backgroundColor: {
         'senac-yellow-40': 'rgba(253, 193, 128, 0.4)',
         'senac-yellow-70': 'rgba(247, 148, 29, 0.7)',
-        'senac-blue': '#004C94'
+        'senac-blue': '#004C94',
+        'modal-shadow': 'rgba(0, 0, 0, 0.2)',
+        
       },
       fontSize: {
         'pp': '10px',

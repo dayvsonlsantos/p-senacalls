@@ -4,8 +4,11 @@ import DadosChamado from "../components/dadosChamado";
 import InputField from "../components/inputField";
 import Navbar from "../components/navbar";
 import { useState } from "react";
+import { useRouter } from 'next/router'
 
 export default function CancelarChamado() {
+
+    const router = useRouter()
 
     const [data, setData] = useState({
         cancelarChamado: "",
@@ -42,12 +45,12 @@ export default function CancelarChamado() {
             </div>
             <section className="fixed bottom-0 bg-white flex w-full flex-col">
                 <span className="flex items-center justify-center text-sm py-4">Encerrar chamado ?</span>
-                <footer className="w-9/12 flex items-center justify-evenly flex-row py-4">
-                    <a href="/">
+                <footer className="w-4/6 flex items-center justify-around flex-row py-4">
+                    <button onClick={() => router.back()}>
                         <div className="w-12 h-12 flex items-center justify-center">
                             <img className="h-7 w-7" src='/backIcon.svg' alt="Icone de seta, indicando voltar, na cor laranja" />
                         </div>
-                    </a>
+                    </button>
                     <button type="submit" className="bg-red-600 w-16 h-16 flex items-center justify-center rounded-full">
                         <img className="h-7 w-7" src="/checkIcon.svg" alt="Icone de ok, indicando check, na cor branca" />
                     </button>
