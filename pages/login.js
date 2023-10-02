@@ -43,7 +43,7 @@ export default function Login() {
                     onChange={changeInputValue}
                 />
             </div>
-            <button type="submit" className="my-6 text-smbg-senac-yellow-70 w-24 h-10 text-white flex items-center justify-center rounded-lg">
+            <button type="submit" className="my-6 bg-senac-yellow-70 text-sm w-24 h-10 text-white flex items-center justify-center rounded-lg">
                 Entrar
             </button>
             <p className="flex w-4/6 text-xs text-center items-center justify-center flex-col py-4">
