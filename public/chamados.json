@@ -1,0 +1,50 @@
+[
+    {
+        "id": "1",
+        "chamado_status": "Aberto",
+        "chamado_defeito": "Não liga",
+        "sala_laboratorio": "1401",
+        "codigo_equipamento": "EQ001",
+        "equipamento": "computador"
+    },
+    {
+        "id": "2",
+        "chamado_status": "Concluído",
+        "chamado_defeito": "Imagem borrada",
+        "sala_laboratorio": "1402",
+        "codigo_equipamento": "EQ002",
+        "equipamento": "projetor"
+    },
+    {
+        "id": "3",
+        "chamado_status": "Aberto",
+        "chamado_defeito": "Tela azul",
+        "sala_laboratorio": "1403",
+        "codigo_equipamento": "EQ003",
+        "equipamento": "computador"
+    },
+    {
+        "id": "4",
+        "chamado_status": "Concluído",
+        "chamado_defeito": "Não conecta à internet",
+        "sala_laboratorio": "1401",
+        "codigo_equipamento": "EQ004",
+        "equipamento": "computador"
+    },
+    {
+        "id": "5",
+        "chamado_status": "Aberto",
+        "chamado_defeito": "Lente danificada",
+        "sala_laboratorio": "1402",
+        "codigo_equipamento": "EQ005",
+        "equipamento": "projetor"
+    },
+    {
+        "id": "6",
+        "chamado_status": "Aberto",
+        "chamado_defeito": "Falha no sistema operacional",
+        "sala_laboratorio": "1403",
+        "codigo_equipamento": "EQ006",
+        "equipamento": "computador"
+    }
+]
