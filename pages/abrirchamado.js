@@ -88,7 +88,7 @@ export default function AbrirChamado() {
 
                         <div className="w-[320px] grid gap-2">
                             <div className="h-24 cursor-pointer relative flex justify-center items-center rounded-md bg-senac-yellow-40">
-                                <input type="file" name="file" onChange={imageHandler} className="z-20 opacity-0 cursor-pointer h-full w-full" />
+                                <input type="file" name="file" id="file" accept='image/*' onChange={imageHandler} className="z-20 opacity-0 cursor-pointer h-full w-full" />
                                 <div className="absolute flex justify-center items-center gap-2">
                                     <img className={`h-10 w-10 rounded-full ${checkFile ? 'opacity-1' : 'opacity-0'}`} src={selectedFile ? URL.createObjectURL(selectedFile) : null} />
                                     <span className="text-[18px] w-56 truncate">{checkFile ? (selectedFile ? selectedFile.name : 'Imagem Selecionada') : 'Enviar uma Imagem'}</span>
