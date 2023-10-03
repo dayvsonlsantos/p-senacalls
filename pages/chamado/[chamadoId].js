@@ -1,10 +1,11 @@
 import DadosChamado from "../../components/dadosChamado"
 import Navbar from "../../components/navbar"
-
+import { useRouter } from 'next/router'
 import fs from 'fs';
 import path from 'path';
 
 export async function getStaticProps(context) {
+
     const { params } = context;
 
     const filePath = path.join(process.cwd(), 'public', 'chamados.json');
@@ -42,6 +43,10 @@ export async function getStaticPaths() {
 
 
 export default function Chamado({ chamado }) {
+
+    // Permite rotar de voltar página
+    const router = useRouter()
+
     return (
         <div className="flex flex-col min-h-screen">
             <div className="flex-grow mb-28">
@@ -65,11 +70,9 @@ export default function Chamado({ chamado }) {
             </div>
             <section className="fixed bottom-0 bg-white flex w-full flex-col">
                 <footer className="w-1/3 flex items-center justify-evenly flex-row py-4">
-                    <a href="/">
-                        <div className="w-12 h-12 flex items-center justify-center">
-                            <img className="h-7 w-7" src='/backIcon.svg' alt="Icone de seta, indicando voltar, na cor laranja" />
-                        </div>
-                    </a>
+                    <button onClick={() => router.back()} className="w-16 h-16 flex items-center justify-center rounded-full">
+                        <img className="h-7 w-7" src="/backIcon.svg" alt="Icone de ok, indicando check, na cor branca" />
+                    </button>
                 </footer>
             </section>
         </div>

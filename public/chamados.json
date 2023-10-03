@@ -5,7 +5,9 @@
         "chamado_defeito": "Não liga",
         "sala_laboratorio": "1401",
         "codigo_equipamento": "EQ001",
-        "equipamento": "computador"
+        "equipamento": "computador",
+        "usuarioId": "1",
+        "usuarioNome": "João"
     },
     {
         "id": "2",
@@ -13,7 +15,9 @@
         "chamado_defeito": "Imagem borrada",
         "sala_laboratorio": "1402",
         "codigo_equipamento": "EQ002",
-        "equipamento": "projetor"
+        "equipamento": "projetor",
+        "usuarioId": "2",
+        "usuarioNome": "Pedro"
     },
     {
         "id": "3",
@@ -21,7 +25,9 @@
         "chamado_defeito": "Tela azul",
         "sala_laboratorio": "1403",
         "codigo_equipamento": "EQ003",
-        "equipamento": "computador"
+        "equipamento": "computador",
+        "usuarioId": "3",
+        "usuarioNome": "Mateus"
     },
     {
         "id": "4",
@@ -29,7 +35,9 @@
         "chamado_defeito": "Não conecta à internet",
         "sala_laboratorio": "1401",
         "codigo_equipamento": "EQ004",
-        "equipamento": "computador"
+        "equipamento": "computador",
+        "usuarioId": "1",
+        "usuarioNome": "João"
     },
     {
         "id": "5",
@@ -37,7 +45,9 @@
         "chamado_defeito": "Lente danificada",
         "sala_laboratorio": "1402",
         "codigo_equipamento": "EQ005",
-        "equipamento": "projetor"
+        "equipamento": "projetor",
+        "usuarioId": "5",
+        "usuarioNome": "Henrique"
     },
     {
         "id": "6",
@@ -45,6 +55,8 @@
         "chamado_defeito": "Falha no sistema operacional",
         "sala_laboratorio": "1403",
         "codigo_equipamento": "EQ006",
-        "equipamento": "computador"
+        "equipamento": "computador",
+        "usuarioId": "5",
+        "usuarioNome": "Henrique"
     }
 ]
