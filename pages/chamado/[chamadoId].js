@@ -58,6 +58,18 @@ export default function Chamado({ chamado }) {
                     <DadosChamado title={'Código do Equipamento'} dado_chamado={chamado.codigo_equipamento} />
                     <DadosChamado title={'Sala / Laboratório'} dado_chamado={chamado.sala_laboratorio} />
                     <DadosChamado title={'Defeito'} dado_chamado={chamado.chamado_defeito} />
+                    <div className="flex justify-center items-start flex-col w-4/6 py-2">
+                        <h2 className="flex justify-start w-full py-2">Imagem do Problema</h2>
+                        <div className="rounded-lg my-2 w-64 h-44 overflow-hidden relative">
+                            {chamado.imagem
+                                ?
+                                (
+                                    <img className="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" src={chamado.imagem} alt={chamado.imagemAlt} />
+                                )
+                                : <img className="w-full h-full object-cover absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2" src='/images/noImage.png' alt='Imagem padrão, indicando que nenhuma imagem foi enviada' />
+                            }
+                        </div>
+                    </div>
                     <div className="flex justify-start items-start flex-col w-4/6">
                         <h2 className="flex justify-start w-full py-2">Status</h2>
                         <span className={`text-xs p-1 rounded-lg ${chamado.chamado_status === 'Concluído' ? 'bg-senac-blue text-white' : 'bg-senac-yellow-70'}`}>

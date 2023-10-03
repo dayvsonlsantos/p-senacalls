@@ -11,7 +11,8 @@ export default function AbrirChamado() {
         equipamento: "",
         codigo_equipamento: "",
         sala_laboratorio: "",
-        defeito: ""
+        defeito: "",
+        imagem: ""
     });
 
     function sendData(e) {
@@ -23,9 +24,21 @@ export default function AbrirChamado() {
         setData({ ...data, [e.target.name]: e.target.value });
     }
 
+    // Imagem Input
+
+    const [selectedFile, setSelectedFile] = useState(null);
+    const [checkFile, setCheckFile] = useState(false);
+
+    const imageHandler = (e) => {
+        setSelectedFile(e.target.files[0]);
+        setCheckFile(true);
+        setData({ ...data, imagem: e.target.files[0] });
+    }
+
+
     return (
         <form onSubmit={sendData} className="flex flex-col min-h-screen">
-            <div className="flex-grow mb-36">
+            <div className="flex-grow mb-40">
                 <Navbar />
                 <main className="flex items-center justify-center flex-col w-full ">
                     <h1 className="flex justify-start w-4/5 m-4 text-lg">Abrir Chamado</h1>
@@ -69,6 +82,21 @@ export default function AbrirChamado() {
                         value={data.defeito}
                         onChange={changeInputValue}
                     />
+
+                    <div className="flex items-center justify-center flex-col w-4/5">
+                        <h2 className="flex justify-start w-full py-2">Adicione uma Imagem</h2>
+
+                        <div className="w-[320px] grid gap-2">
+                            <div className="h-24 cursor-pointer relative flex justify-center items-center rounded-md bg-senac-yellow-40">
+                                <input type="file" name="file" onChange={imageHandler} className="z-20 opacity-0 cursor-pointer h-full w-full" />
+                                <div className="absolute flex justify-center items-center gap-2">
+                                    <img className={`h-10 w-10 rounded-full ${checkFile ? 'opacity-1' : 'opacity-0'}`} src={selectedFile ? URL.createObjectURL(selectedFile) : null} />
+                                    <span className="text-[18px] w-56 truncate">{checkFile ? (selectedFile ? selectedFile.name : 'Imagem Selecionada') : 'Enviar uma Imagem'}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
                 </main>
             </div>
