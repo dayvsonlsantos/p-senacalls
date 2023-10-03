@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import InputField from '../components/inputField';
+import { useRouter } from 'next/router';
 
 export default function Login() {
 
@@ -11,10 +12,19 @@ export default function Login() {
     function sendData(e) {
         e.preventDefault();
         console.log(data);
+        acessarPerfil();
     }
 
     const changeInputValue = (e) => {
         setData({ ...data, [e.target.name]: e.target.value });
+    }
+
+    const router = useRouter();
+
+    function acessarPerfil(){
+        if ((data.matricula === '0020012000') && (data.senha === '0020012000')){
+            router.push('/perfil');
+        }
     }
 
 
