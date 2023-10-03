@@ -185,7 +185,7 @@ export default function OpenCamera({ ...props }) {
                             </button>
                             <button onClick={capturePhoto}><img className={`h-10 w-10 ${stream ? '' : 'hidden'}`} src='/takePhotoIcon.svg' alt='Icone de tirar foto' /></button>
                             <div className='h-10 w-10 flex items-center justify-evenly flex-row'>
-                                <input type="file" name="file" onChange={imageHandler} className="z-20 opacity-0 cursor-pointer h-10 w-10" />
+                                <input type="file" name="file" id='file' accept='image/*' onChange={imageHandler} className="z-20 opacity-0 cursor-pointer h-10 w-10" />
                                 <div className="absolute flex justify-center items-center gap-2">
                                     <img className={`h-10 w-10 rounded-full}`} src='/attachFileIcon.svg' />
                                 </div>
