@@ -22,41 +22,60 @@ export default function OpenCamera({ ...props }) {
         }
     };
 
-    const toggleVideo = () => {
+    const stopCameraOrFile = () => {
         if (stream) {
-            // Se a stream estiver ativa, desligue-a
             let tracks = stream.getTracks();
             tracks.forEach(track => track.stop());
-            setStream(null); // Limpa a stream salva
+            setStream(null);
             if (videoRef.current) {
-                videoRef.current.srcObject = null; // Limpa a fonte do vídeo
+                videoRef.current.srcObject = null;
             }
-        } else {
-            // Se a stream não estiver ativa, inicie-a
-            if (!navigator.mediaDevices && !navigator.getUserMedia && !navigator.webkitGetUserMedia &&
-                !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
-                alert('User Media API not supported.');
-                return;
-            }
-
-            const constraints = { video: true };
-
-            getUserMedia(constraints)
-                .then((newStream) => {
-                    setStream(newStream);  // Salva a stream no state
-                    const video = videoRef.current;
-                    if ('srcObject' in video) {
-                        video.srcObject = newStream;
-                    } else {
-                        video.src = (window.URL || window.webkitURL).createObjectURL(newStream);
-                    }
-                    video.play();
-                })
-                .catch((err) => {
-                    alert('Error: ' + err);
-                });
         }
+        // Redefina selectedFile e checkFile
+        setSelectedFile(null);
+        setCheckFile(false);
     };
+
+
+    const toggleVideo = () => {
+        if (stream) {
+            stopCameraOrFile();
+        } else {
+            if (stream) {
+                // Se a stream estiver ativa, desligue-a
+                let tracks = stream.getTracks();
+                tracks.forEach(track => track.stop());
+                setStream(null); // Limpa a stream salva
+                if (videoRef.current) {
+                    videoRef.current.srcObject = null; // Limpa a fonte do vídeo
+                }
+            } else {
+                // Se a stream não estiver ativa, inicie-a
+                if (!navigator.mediaDevices && !navigator.getUserMedia && !navigator.webkitGetUserMedia &&
+                    !navigator.mozGetUserMedia && !navigator.msGetUserMedia) {
+                    alert('User Media API not supported.');
+                    return;
+                }
+
+                const constraints = { video: true };
+
+                getUserMedia(constraints)
+                    .then((newStream) => {
+                        setStream(newStream);  // Salva a stream no state
+                        const video = videoRef.current;
+                        if ('srcObject' in video) {
+                            video.srcObject = newStream;
+                        } else {
+                            video.src = (window.URL || window.webkitURL).createObjectURL(newStream);
+                        }
+                        video.play();
+                    })
+                    .catch((err) => {
+                        alert('Error: ' + err);
+                    });
+            }
+        }
+    }
 
     const [lastAction, setLastAction] = useState(null);
 
@@ -135,6 +154,7 @@ export default function OpenCamera({ ...props }) {
         }
         console.log(imageToRender);
         props.closeModalCamera();
+        stopCameraOrFile();
         // Você pode adicionar mais lógica aqui se quiser enviar a imagem para um servidor, por exemplo.
     };
 
@@ -146,7 +166,12 @@ export default function OpenCamera({ ...props }) {
             <div className="w-8/12 drop-shadow-lg bg-white py-4 rounded-lg absolute flex items-center justify-center flex-col top-1/2 left-1/2 -translate-y-2/4 -translate-x-2/4">
                 <div className='flex items-center justify-evenly flex-row w-11/12'>
                     <h1 className='my-5 text-lg'>Tire uma foto</h1>
-                    <button onClick={props.closeModalCamera} className='w-10 h-10'><img src="/closeIcon.svg" alt="Icone de fechar/sair" /></button>
+                    <button onClick={() => {
+                        stopCameraOrFile();
+                        props.closeModalCamera();
+                    }} className='w-10 h-10'>
+                        <img src="/closeIcon.svg" alt="Icone de fechar/sair" />
+                    </button>
                 </div>
                 <div className='w-full flex items-center justify-evenly flex-row'>
                     <div className='w-full flex items-center justify-center flex-col'>
